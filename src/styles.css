@@ -415,6 +415,28 @@ h2 {
   margin-top: 4rem;
 }
 
+/* Homepage "What we're building": four cards across on desktop */
+@media (min-width: 1101px) {
+  #work .model-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Tablet: two across (avoids cramped columns) */
+@media (min-width: 901px) and (max-width: 1100px) {
+  #work .model-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Grants landing: two cards, side by side on desktop */
+@media (min-width: 901px) {
+  #grants .model-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 800px;
+  }
+}
+
 .model-card {
   background: var(--bg-secondary);
   padding: 3rem;
