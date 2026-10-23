@@ -38,6 +38,7 @@ export default defineConfig({
         grants: resolve(__dirname, 'grants/index.html'),
         grantsFulcrum: resolve(__dirname, 'grants/fulcrum/index.html'),
         grantsTranslation: resolve(__dirname, 'grants/translation/index.html'),
+        grantsTranslationGrantees: resolve(__dirname, 'grants/translation/grantees/index.html'),
       },
     },
   },

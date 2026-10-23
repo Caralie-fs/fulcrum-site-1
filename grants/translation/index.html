@@ -58,6 +58,7 @@ h1{font-size:64px;font-weight:300;line-height:.98;letter-spacing:-2px}
 .closed-note{margin-top:34px;max-width:520px}
 .closed-note .closed-head{font-size:20px;color:var(--text)}
 .closed-note .closed-sub{margin-top:8px;font-size:17px;line-height:1.45;color:var(--muted)}
+.closed-note .btn{margin-top:22px}
 
 /* grant fact card */
 .herocard{width:264px;flex-shrink:0;background:var(--gold);border-radius:6px;padding:26px 28px;color:#141310}
@@ -115,6 +116,9 @@ section{padding:56px 0;border-top:1px solid var(--line2)}
 .cta-band{background:var(--gold-bg);border:1px solid var(--gold-soft);border-radius:8px;padding:44px;text-align:center;margin:56px 0}
 .cta-band h2{font-size:34px;font-weight:300;letter-spacing:-.6px;margin-bottom:26px}
 .cta-band p{color:var(--muted);font-size:18px;margin:14px 0 26px}
+a.cta-band{display:block;background:var(--gold);border-color:var(--gold);color:#141310;transition:.15s}
+a.cta-band p{color:#141310;font-size:24px;line-height:1.4;font-weight:500;max-width:640px;margin:0 auto}
+a.cta-band:hover{filter:brightness(1.07)}
 
 footer{border-top:1px solid var(--line2);padding:40px 0 60px;color:var(--muted2);font-size:15px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -147,8 +151,9 @@ footer a{color:var(--muted)}
         <h1>Translation Grant</h1>
         <p class="tag">Flexible, direct support for researchers working to move promising science toward real-world use.</p>
         <div class="closed-note">
-          <p class="closed-head">Applications are now closed.</p>
-          <p class="closed-sub">Grantees will be announced soon. Future rounds will be posted here. Check back for the next call.</p>
+          <p class="closed-head">Applications are currently closed.</p>
+          <p class="closed-sub">Our first cohort has been announced. Future rounds will be posted here.</p>
+          <a class="btn btn-primary" href="/grants/translation/grantees/">Meet the grantees →</a>
         </div>
       </div>
       <div class="herocard">
@@ -282,10 +287,9 @@ footer a{color:var(--muted)}
 </section>
 
 <div class="wrap" id="apply">
-  <div class="cta-band">
-    <h2>Applications are now closed</h2>
-    <p>Applications for this round closed on September 15, 2026. Grantees will be announced soon. Future rounds will be announced on this page. Check back for the next call.</p>
-  </div>
+  <a class="cta-band" href="/grants/translation/grantees/">
+    <p>Applications for our first round closed on September 15, 2026. Meet our first cohort of grantees →</p>
+  </a>
 </div>
 
 <footer>
