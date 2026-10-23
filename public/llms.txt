@@ -4,21 +4,13 @@
 
 Fulcrum is a public good initiative to accelerate scientific research.
 
-We place AI engineers with research labs working on hard scientific problems, support organizations and events shaping AI-driven science, and incubate software for more automated and software-defined lab operations.
+We support organizations and events shaping AI-driven science, and incubate software for more automated and software-defined lab operations.
 
 ## Main Site
 
 - Website: https://fulcrum.science/
 
 ## What Fulcrum Is Building
-
-### Fulcrum Fellowship
-
-AI engineers are matched with scientific labs and research teams that need technical expertise to move faster.
-
-- URL: https://fulcrum.science/fellowship/
-- Focus: embedded AI engineers for scientific labs
-- Audience: AI engineers, scientists, and research labs
 
 ### Partnerships & Events
 
