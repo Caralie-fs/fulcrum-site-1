@@ -43,6 +43,7 @@ Litmus is a related effort focused on a future where wet lab science is coordina
 - Adam Jonas, Co-Founder
 - Arun Nijhawan, Litmus
 - Caralie Chrisco, Head of Operations
+- Arfon Smith, Senior Program Officer
 
 ## Contact
 
