@@ -24,6 +24,7 @@ export default defineConfig({
   root: '.',
   publicDir: 'public',
   base: './',
+  appType: 'mpa',
   plugins: [directoryTrailingSlash()],
   build: {
     outDir: 'dist',
