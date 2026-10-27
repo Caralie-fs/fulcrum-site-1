@@ -47,8 +47,10 @@ for (const page of pages) {
       if (isLocal(request.url())) problems.push(`request failed: ${request.url()}`)
     })
 
-    const response = await browserPage.goto(path, { waitUntil: 'networkidle' })
+    // Not 'networkidle': embeds like Typeform keep the network busy
+    const response = await browserPage.goto(path, { waitUntil: 'load' })
     expect(response.status()).toBe(200)
+    await browserPage.evaluate(() => document.fonts.ready)
     await expect(browserPage.locator('body')).not.toBeEmpty()
 
     // Internal links should point at pages that exist
