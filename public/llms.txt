@@ -21,7 +21,6 @@ Fulcrum backs communities and programs pushing AI-driven science forward.
   - Asimov Press
   - Ikigai Grants
   - Common Crawl
-  - Hack Club
   - ReactorField
   - Open Athena
   - Open Fold
