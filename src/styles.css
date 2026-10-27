@@ -423,6 +423,27 @@ h2 {
   }
 }
 
+/* Smaller cards, e.g. previous sponsorships on Partnerships */
+.model-grid-compact {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.model-grid-compact .model-card {
+  padding: 1.75rem;
+}
+
+.model-grid-compact .model-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.model-grid-compact .model-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
 .model-card {
   background: var(--bg-secondary);
   padding: 3rem;
@@ -791,6 +812,11 @@ footer {
   .model-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+
+  .model-grid-compact {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
 
   .founder-card {
