@@ -18,9 +18,17 @@ Fulcrum backs communities and programs pushing AI-driven science forward.
 
 - URL: https://fulcrum.science/partnerships/
 - Current sponsorships highlighted on the site:
+  - Asimov Press
+  - Ikigai Grants
+  - Common Crawl
+  - Hack Club
+  - ReactorField
+  - Open Athena
+  - Open Fold
   - New Science
-  - Hack-Nation
+- Previous sponsorships:
   - Nucleate
+  - Hack-Nation
 
 ### Litmus
 
