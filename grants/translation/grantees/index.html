@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>2026 Grantees · Fulcrum Science</title>
-<meta name="description" content="Meet the recipients of the Fulcrum Translation Grant.">
+<meta name="description" content="Meet the recipients of the 2026 Fulcrum Translation and Friction Grants.">
 <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
@@ -16,11 +16,11 @@
 
 <style>
 :root{
-  --bg:#0A0A0B; --surface:#111113;
+  --bg:#0A0A0B; --surface:#111113; --surface2:#18181b;
   --text:#FAFAF9; --muted:#A8A8A4; --muted2:#6B6B66;
   --gold:#C4A962; --gold-soft:rgba(196,169,98,.34); --gold-bg:rgba(196,169,98,.08);
   --line2:rgba(250,250,249,.07);
-  --maxw:960px;
+  --maxw:1080px;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 body{
@@ -29,8 +29,9 @@ body{
   -webkit-font-smoothing:antialiased;line-height:1.5;
 }
 a{color:var(--gold);text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-.label{font-size:12px;font-weight:500;letter-spacing:2.4px;text-transform:uppercase;color:var(--gold);display:block}
 
 /* ---------- top nav ---------- */
 .nav{border-bottom:1px solid var(--gold-soft);position:sticky;top:0;background:rgba(10,10,11,.82);backdrop-filter:blur(8px);z-index:10}
@@ -40,34 +41,73 @@ a{color:var(--gold);text-decoration:none}
 .nav .r{font-size:12px;letter-spacing:2.4px;text-transform:uppercase;color:var(--muted)}
 
 /* ---------- hero ---------- */
-.hero{padding:64px 0 36px}
-.back{font-size:14px;color:var(--muted);display:inline-block;margin-bottom:28px}
+.hero{padding:56px 0 28px;display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:end}
+.back{font-size:14px;color:var(--muted);display:inline-block;margin-bottom:22px}
 .back:hover{color:var(--gold)}
-h1{font-size:56px;font-weight:300;line-height:.98;letter-spacing:-2px;margin-top:14px}
-.tag{margin-top:22px;font-size:22px;line-height:1.32;max-width:520px;color:#ededea}
+h1{font-size:64px;font-weight:300;line-height:.95;letter-spacing:-2px}
+.intro{font-size:18px;line-height:1.55;color:#cfcfca}
 
-/* ---------- stories ---------- */
-.stories{padding-bottom:64px}
-.story{display:grid;grid-template-columns:60px minmax(0,1fr);gap:24px;padding:36px 0;border-top:1px solid var(--line2)}
-.story:last-child{border-bottom:1px solid var(--line2)}
-.av{width:60px;height:60px;border-radius:50%;object-fit:cover;border:1px solid var(--gold-soft);background:var(--surface)}
-.story-body{max-width:720px}
-.story h2{font-size:26px;font-weight:400;letter-spacing:-.3px}
-.story .li{display:inline-flex;vertical-align:middle;margin-left:10px;color:var(--muted);position:relative;top:-2px}
-.story .li:hover{color:var(--gold)}
-.story .meta{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:6px}
-.story p{font-size:18px;line-height:1.6;color:#cfcfca;margin-top:14px}
-.story p:first-of-type{margin-top:18px}
+/* ---------- filter (radio buttons, no JS) ---------- */
+.controls{position:sticky;top:64px;z-index:9;background:rgba(10,10,11,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line2)}
+.seg{display:flex;gap:4px;flex-wrap:wrap;align-items:center;padding-block:12px}
+.seg .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted2);margin-right:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{font-size:15px;padding:6px 14px;border-radius:999px;color:var(--muted);border:1px solid transparent;cursor:pointer}
+.seg label:hover{color:var(--text)}
+.seg input:checked + label{color:var(--gold);border-color:var(--gold-soft)}
+.seg input:focus-visible + label{outline:2px solid var(--gold);outline-offset:3px}
+body:has(#show-t:checked) .cohort-f,
+body:has(#show-f:checked) .cohort-t{display:none}
+
+/* ---------- face wall ---------- */
+main.wrap{padding-top:40px;padding-bottom:80px;min-height:60vh}
+.cohort + .cohort{margin-top:56px}
+.grp{display:flex;align-items:baseline;gap:14px;margin:8px 0 18px}
+.grp h2{font-size:28px;font-weight:300;letter-spacing:-.5px}
+.grp .amt{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold)}
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(118px,1fr));gap:26px 18px}
+.face{text-align:center;display:flex;flex-direction:column;align-items:center;gap:10px;padding:4px}
+.face .ph{width:96px;height:96px;border-radius:50%;object-fit:cover;border:1px solid var(--gold-soft);background:var(--surface);transition:transform .15s,border-color .15s}
+.face:hover .ph{transform:scale(1.05);border-color:var(--gold)}
+.face .nm{font-size:15px;line-height:1.25}
+.face .sub{font-size:12px;color:var(--muted2);line-height:1.3;margin-top:-6px}
+.ini{display:flex;align-items:center;justify-content:center;color:var(--gold);font-size:26px}
+.wall.small .ph{width:72px;height:72px}
+.wall.small .ini{font-size:20px}
+
+/* ---------- grantee pop-up (native popover, no JS) ---------- */
+.pop{margin:auto;max-width:440px;width:calc(100% - 32px);background:var(--surface2);color:var(--text);border:1px solid var(--gold-soft);border-radius:10px;padding:30px}
+.pop::backdrop{background:rgba(0,0,0,.65)}
+.dx{position:absolute;top:12px;right:14px;font-size:22px;color:var(--muted);width:36px;height:36px}
+.dx:hover{color:var(--gold)}
+.dh{display:flex;gap:16px;align-items:center;padding-right:28px}
+.dh .ph{width:72px;height:72px;border-radius:50%;object-fit:cover;border:1px solid var(--gold-soft);background:var(--surface);flex-shrink:0}
+.dh .ini{font-size:22px}
+.dn{font-size:26px;font-weight:300;line-height:1.15}
+.tag{display:inline-block;margin-top:6px;font-size:10px;letter-spacing:1.6px;text-transform:uppercase;padding:2px 7px;border-radius:3px;white-space:nowrap}
+.tag.t{color:var(--bg);background:var(--gold)}
+.tag.f{color:var(--gold);border:1px solid var(--gold-soft)}
+.dm{margin-top:20px;display:grid;gap:4px;font-size:15px;color:var(--muted)}
+.dm .fld{font-size:11px;letter-spacing:1.8px;text-transform:uppercase;color:var(--gold)}
+.dp{margin-top:16px;font-size:18px;line-height:1.5;color:#e4e4e0}
+.dl{margin-top:20px;display:inline-block;font-size:15px}
 
 footer{border-top:1px solid var(--line2);padding:40px 0 60px;color:var(--muted2);font-size:15px}
 footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 footer a{color:var(--muted)}
 
-@media(max-width:720px){
-  h1{font-size:40px}
-  .hero{padding:48px 0 28px}
-  .story{grid-template-columns:1fr;gap:14px}
+@media(max-width:820px){
+  .hero{grid-template-columns:1fr;gap:20px;padding-top:40px}
+  h1{font-size:46px}
 }
+@media(max-width:520px){
+  .wrap{padding:0 16px}
+  .wall{grid-template-columns:repeat(3,1fr);gap:20px 10px}
+  .face .ph{width:76px;height:76px}
+  .wall.small .ph{width:62px;height:62px}
+  .seg label{padding:5px 11px;font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.face .ph{transition:none}}
 </style>
 </head>
 
@@ -81,257 +121,445 @@ footer a{color:var(--muted)}
 
 <div class="wrap">
   <div class="hero">
-    <a class="back" href="/grants/translation/">← Translation Grant</a>
-    <h1>2026 Grantees</h1>
+    <div>
+      <a class="back" href="/grants/translation/">← Translation Grant</a>
+      <h1>2026<br>Grantees</h1>
+    </div>
+    <p class="intro">After receiving overwhelming interest in this grant program, we decided to provide two forms of grants: the original $5K Translation Grant, and a newly-scoped $1K or $2K Friction Grant to support scientists with specific expenses.</p>
   </div>
+</div>
 
-  <div class="stories">
-    <!-- One <article> per grantee, alphabetical by last name. Photos live in /public/images/grantees/.
-         Include the project description <p> only if the grantee consented to sharing one. -->
-    <article class="story">
-      <img class="av" src="/images/grantees/farbod-amirghasemi.jpg" alt="Farbod Amirghasemi" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Farbod Amirghasemi <a class="li" href="https://www.linkedin.com/in/farbod-amirghasemi/" target="_blank" rel="noopener" aria-label="Farbod Amirghasemi on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Bioengineering</span>
-        <span class="meta">Currently: PhD candidate @ University of Southern California</span>
-        <p>A bedside jaundice test for newborns that needs only one drop of blood.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/alice-amitrano.jpg" alt="Alice Amitrano" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Alice Amitrano <a class="li" href="https://www.linkedin.com/in/alice-amitrano-ph-d-a19386177/" target="_blank" rel="noopener" aria-label="Alice Amitrano on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Bioengineering</span>
-        <span class="meta">Currently: Postdoctoral Research Fellow @ Johns Hopkins University</span>
-        <p>A lab test that predicts glioblastoma survival from the behavior of a patient’s own tumor cells.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/panagiota-apostolou.jpg" alt="Panagiota Apostolou" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Panagiota Apostolou <a class="li" href="https://www.linkedin.com/in/panagiota-julie-apostolou-17b0973b/" target="_blank" rel="noopener" aria-label="Panagiota Apostolou on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Neuroscience</span>
-        <span class="meta">Currently: Postdoc @ Columbia University</span>
-        <p>Following a schizophrenia-linked gene fault to a candidate drug that restores the gene activity it disrupts.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/muhammad-nauman-arshad.jpg" alt="Muhammad Nauman Arshad" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Muhammad Nauman Arshad</h2>
-        <span class="meta">Neuroscience</span>
-        <span class="meta">Currently: Postdoctoral Research Fellow @ Tufts University School of Medicine</span>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/sachin-haresh-bhagchandani.jpg" alt="Sachin Haresh Bhagchandani" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Sachin Haresh Bhagchandani</h2>
-        <span class="meta">Immunology</span>
-        <span class="meta">Currently: Postdoctoral Research Fellow @ Yale School of Medicine</span>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/julie-dao.jpg" alt="Julie Dao" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Julie Dao <a class="li" href="https://www.linkedin.com/in/thi-dao/" target="_blank" rel="noopener" aria-label="Julie Dao on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Bioengineering</span>
-        <span class="meta">Currently: Postdoctoral Fellow @ Monash &amp; University of Melbourne</span>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/william-escobar.jpg" alt="William Escobar" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>William Escobar</h2>
-        <span class="meta">Therapeutics</span>
-        <span class="meta">Currently: PhD student @ Yale University</span>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/raianna-fantin.jpg" alt="Raianna Fantin" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Raianna Fantin <a class="li" href="https://www.linkedin.com/in/raianna-fantin/" target="_blank" rel="noopener" aria-label="Raianna Fantin on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Infectious Disease</span>
-        <span class="meta">Currently: Postdoctoral Fellow @ Icahn School of Medicine at Mount Sinai</span>
-        <p>Monoclonal antibodies against mpox that protected animals from the virus.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/dimitris-grigoriadis.jpg" alt="Dimitris Grigoriadis" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Dimitris Grigoriadis <a class="li" href="https://www.linkedin.com/in/dimitris-grigoriadis-8a516a123/" target="_blank" rel="noopener" aria-label="Dimitris Grigoriadis on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Computational Biology</span>
-        <span class="meta">Currently: Postdoctoral Research Fellow @ University of Texas at Austin</span>
-        <p>SRA Explorer, a searchable platform for the world’s largest public store of genetic sequencing data.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/parker-kotlarz.jpg" alt="Parker Kotlarz" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Parker Kotlarz <a class="li" href="https://www.linkedin.com/in/parker-kotlarz/" target="_blank" rel="noopener" aria-label="Parker Kotlarz on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Neuroscience</span>
-        <span class="meta">Currently: MD candidate @ Harvard Medical School</span>
-        <p>Brain stimulation guided by each patient’s own scans, for drug-resistant epilepsy, stroke, and OCD.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/helene-lacaille.jpg" alt="Helene Lacaille" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Helene Lacaille <a class="li" href="https://www.linkedin.com/in/helene-lacaille-bba5ba1a5/" target="_blank" rel="noopener" aria-label="Helene Lacaille on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Neuroscience</span>
-        <span class="meta">Currently: Associate Research Scientist @ Columbia University Medical Center</span>
-        <p>Identifying the placental hormones that support brain development, so they can be given to babies born too early.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/quinn-ma.jpg" alt="Quinn Ma" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Quinn Ma <a class="li" href="https://www.linkedin.com/in/quinn-ma/" target="_blank" rel="noopener" aria-label="Quinn Ma on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Bioengineering</span>
-        <span class="meta">Currently: Postdoc @ Johns Hopkins University</span>
-        <p>Software that corrects positioning errors in industrial X-ray scanners, so 3D-printed metal parts can be inspected faster and for less.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/haider-manzer.jpg" alt="Haider Manzer" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Haider Manzer</h2>
-        <span class="meta">Infectious Disease</span>
-        <span class="meta">Currently: Postdoctoral Fellow @ Children’s Hospital of Philadelphia</span>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/omar-matar.jpg" alt="Omar Matar" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Omar Matar <a class="li" href="https://www.linkedin.com/in/omarmatar21/" target="_blank" rel="noopener" aria-label="Omar Matar on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Drug Discovery</span>
-        <span class="meta">Currently: PhD candidate @ University College London</span>
-        <p>Vios Bio, a male infertility drug that targets the switch powering sperm movement.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/jorge-a-valedon-navarro.jpg" alt="Jorge A. Valedon Navarro" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Jorge A. Valedon Navarro <a class="li" href="https://www.linkedin.com/in/jorge-valedon/" target="_blank" rel="noopener" aria-label="Jorge A. Valedon Navarro on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">AI &amp; Computing</span>
-        <span class="meta">Currently: Pharmacy fellow @ UF Health and University of Florida</span>
-        <p>An AI system, overseen by licensed pharmacists, that completes the insurance paperwork standing between patients and their medicine.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/victor-ochoa-gutierrez.jpg" alt="Victor Ochoa-Gutierrez" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Victor Ochoa-Gutierrez <a class="li" href="https://www.linkedin.com/in/victorjalil/" target="_blank" rel="noopener" aria-label="Victor Ochoa-Gutierrez on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Bioengineering</span>
-        <span class="meta">Currently: Postdoctoral Research Fellow @ Cornell University</span>
-        <p>A pulse oximeter rebuilt to read blood oxygen accurately across every skin tone.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/erica-olsen.jpg" alt="Erica Olsen" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Erica Olsen <a class="li" href="https://www.linkedin.com/in/erica-christine-olsen/" target="_blank" rel="noopener" aria-label="Erica Olsen on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Bioengineering</span>
-        <span class="meta">Currently: PhD student @ University of Cambridge</span>
-        <p>A skin-worn sensor that tracks hormones continuously, instead of the single snapshot a blood draw gives.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/deep-pal.jpg" alt="Deep Pal" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Deep Pal <a class="li" href="https://www.linkedin.com/in/deep-pal-8a6573a4/" target="_blank" rel="noopener" aria-label="Deep Pal on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Bioengineering</span>
-        <span class="meta">Currently: Postdoctoral Fellow @ Chulalongkorn University</span>
-        <p>A needle-free breath test for diabetes, making low-cost acetone sensors sensitive enough to use.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/daniel-penados.jpg" alt="Daniel Penados" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Daniel Penados <a class="li" href="https://www.linkedin.com/in/daniel-penados-richter-7aa597274/" target="_blank" rel="noopener" aria-label="Daniel Penados on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Oncology</span>
-        <span class="meta">Currently: PhD student @ University of Vermont</span>
-        <p>Mapping signals from DCBLD2, a protein linked to pancreatic cancer survival, and building free tools to measure them.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/upahar-poudel.jpg" alt="Upahar Poudel" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Upahar Poudel <a class="li" href="https://www.linkedin.com/in/upaharpoudel/" target="_blank" rel="noopener" aria-label="Upahar Poudel on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Engineering &amp; Materials</span>
-        <span class="meta">Currently: PhD student @ University of Nebraska-Lincoln</span>
-        <p>Testing whether the connectors in precast insulated wall panels hold up through fifty years of temperature swings and an earthquake.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/faye-raymond.jpg" alt="Faye Raymond" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Faye Raymond</h2>
-        <span class="meta">Neuroscience</span>
-        <span class="meta">Currently: PhD candidate @ University at Buffalo</span>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/sorour-sarihi.jpg" alt="Sorour Sarihi" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Sorour Sarihi <a class="li" href="https://www.linkedin.com/in/sorour-sarihi-nutrition/" target="_blank" rel="noopener" aria-label="Sorour Sarihi on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Food Science</span>
-        <span class="meta">Currently: PhD student @ University of Connecticut</span>
-        <p>Seaweed-derived compounds built into foods to calm the gut inflammation of inflammatory bowel disease.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/riccardo-sirtori.jpg" alt="Riccardo Sirtori" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Riccardo Sirtori <a class="li" href="https://www.linkedin.com/in/riccardo-sirtori-a145241b5/" target="_blank" rel="noopener" aria-label="Riccardo Sirtori on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Neuroscience</span>
-        <span class="meta">Currently: Postdoctoral Research Fellow @ University of Rhode Island</span>
-        <p>A blood test for detecting ALS early.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/violet-tu.jpg" alt="Violet Tu" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Violet Tu <a class="li" href="https://www.linkedin.com/in/violet-tu-b34747162/" target="_blank" rel="noopener" aria-label="Violet Tu on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Oncology</span>
-        <span class="meta">Currently: MD/PhD candidate @ Duke University</span>
-        <p>An off-the-shelf vaccine for HER2-positive breast cancer, designed to pair with the standard-of-care drug Enhertu.</p>
-      </div>
-    </article>
-
-    <article class="story">
-      <img class="av" src="/images/grantees/meghan-blair-turner.jpg" alt="Meghan Blair Turner" width="60" height="60" loading="lazy">
-      <div class="story-body">
-        <h2>Meghan Blair Turner <a class="li" href="https://www.linkedin.com/in/meghan-blair-turner-ms-phd-279666b0/" target="_blank" rel="noopener" aria-label="Meghan Blair Turner on LinkedIn"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.119 20.452H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a></h2>
-        <span class="meta">Neuroscience</span>
-        <span class="meta">Currently: Postdoctoral Research Fellow @ University of Kentucky</span>
-        <p>How asprosin, a hormone released by body fat, raises blood pressure through the brain.</p>
-      </div>
-    </article>
+<div class="controls">
+  <div class="wrap">
+    <div class="seg" role="radiogroup" aria-label="Grant type">
+      <span class="lbl" aria-hidden="true">Show</span>
+      <input type="radio" name="show" id="show-all" checked><label for="show-all">All</label>
+      <input type="radio" name="show" id="show-t"><label for="show-t">Translation</label>
+      <input type="radio" name="show" id="show-f"><label for="show-f">Friction</label>
+    </div>
   </div>
+</div>
+
+<!-- Generated from grantees.json: Translation Grantees first, then Friction Grantees, each alphabetical
+     by last name. Photos live in /public/images/grantees/. Each face opens the matching popover below.
+     Consent is already applied: no photo → initials; project and LinkedIn appear only where shared. -->
+<main class="wrap">
+  <section class="cohort cohort-t" aria-labelledby="h-t">
+    <div class="grp"><h2 id="h-t">Translation Grantees</h2><span class="amt">$5K</span></div>
+    <div class="wall">
+      <button class="face" popovertarget="p-farbod-amirghasemi"><img class="ph" src="/images/grantees/farbod-amirghasemi.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Farbod Amirghasemi</span><span class="sub">University of Southern California</span></button>
+      <button class="face" popovertarget="p-alice-amitrano"><img class="ph" src="/images/grantees/alice-amitrano.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Alice Amitrano</span><span class="sub">Johns Hopkins University</span></button>
+      <button class="face" popovertarget="p-panagiota-apostolou"><img class="ph" src="/images/grantees/panagiota-apostolou.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Panagiota Apostolou</span><span class="sub">Columbia University</span></button>
+      <button class="face" popovertarget="p-muhammad-nauman-arshad"><img class="ph" src="/images/grantees/muhammad-nauman-arshad.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Muhammad Nauman Arshad</span><span class="sub">Tufts University School of Medicine</span></button>
+      <button class="face" popovertarget="p-sachin-haresh-bhagchandani"><img class="ph" src="/images/grantees/sachin-haresh-bhagchandani.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Sachin Haresh Bhagchandani</span><span class="sub">Yale School of Medicine</span></button>
+      <button class="face" popovertarget="p-julie-dao"><img class="ph" src="/images/grantees/julie-dao.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Julie Dao</span><span class="sub">Monash &amp; University of Melbourne</span></button>
+      <button class="face" popovertarget="p-william-escobar"><img class="ph" src="/images/grantees/william-escobar.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">William Escobar</span><span class="sub">Yale University</span></button>
+      <button class="face" popovertarget="p-raianna-fantin"><img class="ph" src="/images/grantees/raianna-fantin.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Raianna Fantin</span><span class="sub">Icahn School of Medicine at Mount Sinai</span></button>
+      <button class="face" popovertarget="p-dimitris-grigoriadis"><img class="ph" src="/images/grantees/dimitris-grigoriadis.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Dimitris Grigoriadis</span><span class="sub">University of Texas at Austin</span></button>
+      <button class="face" popovertarget="p-parker-kotlarz"><img class="ph" src="/images/grantees/parker-kotlarz.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Parker Kotlarz</span><span class="sub">Harvard Medical School</span></button>
+      <button class="face" popovertarget="p-helene-lacaille"><img class="ph" src="/images/grantees/helene-lacaille.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Helene Lacaille</span><span class="sub">Columbia University Medical Center</span></button>
+      <button class="face" popovertarget="p-quinn-ma"><img class="ph" src="/images/grantees/quinn-ma.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Quinn Ma</span><span class="sub">Johns Hopkins University</span></button>
+      <button class="face" popovertarget="p-haider-manzer"><img class="ph" src="/images/grantees/haider-manzer.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Haider Manzer</span><span class="sub">Children’s Hospital of Philadelphia</span></button>
+      <button class="face" popovertarget="p-omar-matar"><img class="ph" src="/images/grantees/omar-matar.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Omar Matar</span><span class="sub">University College London</span></button>
+      <button class="face" popovertarget="p-jorge-a-valedon-navarro"><img class="ph" src="/images/grantees/jorge-a-valedon-navarro.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Jorge A. Valedon Navarro</span><span class="sub">UF Health and University of Florida</span></button>
+      <button class="face" popovertarget="p-victor-ochoa-gutierrez"><img class="ph" src="/images/grantees/victor-ochoa-gutierrez.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Victor Ochoa-Gutierrez</span><span class="sub">Cornell University</span></button>
+      <button class="face" popovertarget="p-erica-olsen"><img class="ph" src="/images/grantees/erica-olsen.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Erica Olsen</span><span class="sub">University of Cambridge</span></button>
+      <button class="face" popovertarget="p-deep-pal"><img class="ph" src="/images/grantees/deep-pal.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Deep Pal</span><span class="sub">Chulalongkorn University</span></button>
+      <button class="face" popovertarget="p-daniel-penados"><img class="ph" src="/images/grantees/daniel-penados.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Daniel Penados</span><span class="sub">University of Vermont</span></button>
+      <button class="face" popovertarget="p-upahar-poudel"><img class="ph" src="/images/grantees/upahar-poudel.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Upahar Poudel</span><span class="sub">University of Nebraska-Lincoln</span></button>
+      <button class="face" popovertarget="p-faye-raymond"><img class="ph" src="/images/grantees/faye-raymond.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Faye Raymond</span><span class="sub">University at Buffalo</span></button>
+      <button class="face" popovertarget="p-sorour-sarihi"><img class="ph" src="/images/grantees/sorour-sarihi.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Sorour Sarihi</span><span class="sub">University of Connecticut</span></button>
+      <button class="face" popovertarget="p-riccardo-sirtori"><img class="ph" src="/images/grantees/riccardo-sirtori.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Riccardo Sirtori</span><span class="sub">University of Rhode Island</span></button>
+      <button class="face" popovertarget="p-violet-tu"><img class="ph" src="/images/grantees/violet-tu.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Violet Tu</span><span class="sub">Duke University</span></button>
+      <button class="face" popovertarget="p-meghan-blair-turner"><img class="ph" src="/images/grantees/meghan-blair-turner.jpg" alt="" width="96" height="96" loading="lazy"><span class="nm">Meghan Blair Turner</span><span class="sub">University of Kentucky</span></button>
+    </div>
+  </section>
+
+  <section class="cohort cohort-f" aria-labelledby="h-f">
+    <div class="grp"><h2 id="h-f">Friction Grantees</h2><span class="amt">$1K–$2K</span></div>
+    <div class="wall small">
+      <button class="face" popovertarget="p-avaneesh-babu"><img class="ph" src="/images/grantees/avaneesh-babu.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Avaneesh Babu</span><span class="sub">Johns Hopkins University</span></button>
+      <button class="face" popovertarget="p-garyk-brixi"><img class="ph" src="/images/grantees/garyk-brixi.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Garyk Brixi</span><span class="sub">Stanford University</span></button>
+      <button class="face" popovertarget="p-bradley-chan"><span class="ph ini" aria-hidden="true">BC</span><span class="nm">Bradley Chan</span><span class="sub">University of California, Los Angeles</span></button>
+      <button class="face" popovertarget="p-derrick-asante-dwamena"><img class="ph" src="/images/grantees/derrick-asante-dwamena.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Derrick Asante Dwamena</span><span class="sub">Temple University</span></button>
+      <button class="face" popovertarget="p-yehia-elgammal"><img class="ph" src="/images/grantees/yehia-elgammal.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Yehia Elgammal</span><span class="sub">University of Florida</span></button>
+      <button class="face" popovertarget="p-lauren-fries"><img class="ph" src="/images/grantees/lauren-fries.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Lauren Fries</span><span class="sub">Columbia University</span></button>
+      <button class="face" popovertarget="p-cyril-geismar"><img class="ph" src="/images/grantees/cyril-geismar.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Cyril Geismar</span><span class="sub">Johns Hopkins University</span></button>
+      <button class="face" popovertarget="p-leilei-gou"><img class="ph" src="/images/grantees/leilei-gou.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Leilei Gou</span><span class="sub">University of Texas at Austin</span></button>
+      <button class="face" popovertarget="p-alberto-daniel-guerra"><img class="ph" src="/images/grantees/alberto-daniel-guerra.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Alberto Daniel Guerra</span><span class="sub">Children’s Hospital of Philadelphia</span></button>
+      <button class="face" popovertarget="p-nancy-ihechu"><img class="ph" src="/images/grantees/nancy-ihechu.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Nancy Ihechu</span><span class="sub">University of Missouri-Columbia</span></button>
+      <button class="face" popovertarget="p-laiba-jamshed"><img class="ph" src="/images/grantees/laiba-jamshed.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Laiba Jamshed</span><span class="sub">Yale University</span></button>
+      <button class="face" popovertarget="p-md-abdul-kaium-khan"><img class="ph" src="/images/grantees/md-abdul-kaium-khan.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Md Abdul Kaium Khan</span><span class="sub">University at Buffalo</span></button>
+      <button class="face" popovertarget="p-byung-wook-kim"><img class="ph" src="/images/grantees/byung-wook-kim.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Byung-Wook Kim</span><span class="sub">Columbia University</span></button>
+      <button class="face" popovertarget="p-samuel-hyo-nam-king"><img class="ph" src="/images/grantees/samuel-hyo-nam-king.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Samuel Hyo-nam King</span><span class="sub">Stanford University</span></button>
+      <button class="face" popovertarget="p-serena-nencini"><img class="ph" src="/images/grantees/serena-nencini.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Serena Nencini</span><span class="sub">Columbia University</span></button>
+      <button class="face" popovertarget="p-bernard-lawer-patawah"><img class="ph" src="/images/grantees/bernard-lawer-patawah.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Bernard Lawer Patawah</span><span class="sub">Illinois Institute of Technology</span></button>
+      <button class="face" popovertarget="p-anargyros-skoulakis"><img class="ph" src="/images/grantees/anargyros-skoulakis.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Anargyros Skoulakis</span><span class="sub">University of Thessaly</span></button>
+      <button class="face" popovertarget="p-abhishek-soni"><img class="ph" src="/images/grantees/abhishek-soni.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Abhishek Soni</span><span class="sub">Massachusetts Institute of Technology</span></button>
+      <button class="face" popovertarget="p-connor-thompson"><img class="ph" src="/images/grantees/connor-thompson.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Connor Thompson</span><span class="sub">University of British Columbia, Vancouver</span></button>
+      <button class="face" popovertarget="p-mariana-toro-ramirez"><img class="ph" src="/images/grantees/mariana-toro-ramirez.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Mariana Toro Ramirez</span><span class="sub">Concordia University</span></button>
+      <button class="face" popovertarget="p-daniel-uribe"><img class="ph" src="/images/grantees/daniel-uribe.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Daniel Uribe</span><span class="sub">University of Technology Sydney</span></button>
+      <button class="face" popovertarget="p-abishek-wadhwa"><img class="ph" src="/images/grantees/abishek-wadhwa.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Abishek Wadhwa</span><span class="sub">University of British Columbia, Vancouver</span></button>
+      <button class="face" popovertarget="p-sripadh-guptha-yedire"><img class="ph" src="/images/grantees/sripadh-guptha-yedire.jpg" alt="" width="72" height="72" loading="lazy"><span class="nm">Sripadh Guptha Yedire</span><span class="sub">McGill University</span></button>
+      <button class="face" popovertarget="p-jingyao-zhu"><span class="ph ini" aria-hidden="true">JZ</span><span class="nm">Jingyao Zhu</span><span class="sub">Johns Hopkins University</span></button>
+    </div>
+  </section>
+</main>
+
+<div class="pop" id="p-farbod-amirghasemi" popover role="dialog" aria-labelledby="p-farbod-amirghasemi-n">
+  <button class="dx" popovertarget="p-farbod-amirghasemi" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/farbod-amirghasemi.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-farbod-amirghasemi-n">Farbod Amirghasemi</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering</span><span>PhD candidate, University of Southern California</span></div>
+  <p class="dp">A bedside jaundice test for newborns that needs only one drop of blood.</p>
+  <a class="dl" href="https://www.linkedin.com/in/farbod-amirghasemi/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-alice-amitrano" popover role="dialog" aria-labelledby="p-alice-amitrano-n">
+  <button class="dx" popovertarget="p-alice-amitrano" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/alice-amitrano.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-alice-amitrano-n">Alice Amitrano</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering</span><span>Postdoctoral Research Fellow, Johns Hopkins University</span></div>
+  <p class="dp">A lab test that predicts glioblastoma survival from the behavior of a patient’s own tumor cells.</p>
+  <a class="dl" href="https://www.linkedin.com/in/alice-amitrano-ph-d-a19386177/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-panagiota-apostolou" popover role="dialog" aria-labelledby="p-panagiota-apostolou-n">
+  <button class="dx" popovertarget="p-panagiota-apostolou" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/panagiota-apostolou.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-panagiota-apostolou-n">Panagiota Apostolou</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Neuroscience</span><span>Postdoc, Columbia University</span></div>
+  <p class="dp">Following a schizophrenia-linked gene fault to a candidate drug that restores the gene activity it disrupts.</p>
+  <a class="dl" href="https://www.linkedin.com/in/panagiota-julie-apostolou-17b0973b/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-muhammad-nauman-arshad" popover role="dialog" aria-labelledby="p-muhammad-nauman-arshad-n">
+  <button class="dx" popovertarget="p-muhammad-nauman-arshad" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/muhammad-nauman-arshad.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-muhammad-nauman-arshad-n">Muhammad Nauman Arshad</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Neuroscience</span><span>Postdoctoral Research Fellow, Tufts University School of Medicine</span></div>
+</div>
+
+<div class="pop" id="p-sachin-haresh-bhagchandani" popover role="dialog" aria-labelledby="p-sachin-haresh-bhagchandani-n">
+  <button class="dx" popovertarget="p-sachin-haresh-bhagchandani" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/sachin-haresh-bhagchandani.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-sachin-haresh-bhagchandani-n">Sachin Haresh Bhagchandani</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Immunology</span><span>Postdoctoral Research Fellow, Yale School of Medicine</span></div>
+</div>
+
+<div class="pop" id="p-julie-dao" popover role="dialog" aria-labelledby="p-julie-dao-n">
+  <button class="dx" popovertarget="p-julie-dao" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/julie-dao.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-julie-dao-n">Julie Dao</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering</span><span>Postdoctoral Fellow, Monash &amp; University of Melbourne</span></div>
+  <a class="dl" href="https://www.linkedin.com/in/thi-dao/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-william-escobar" popover role="dialog" aria-labelledby="p-william-escobar-n">
+  <button class="dx" popovertarget="p-william-escobar" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/william-escobar.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-william-escobar-n">William Escobar</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Therapeutics</span><span>PhD student, Yale University</span></div>
+</div>
+
+<div class="pop" id="p-raianna-fantin" popover role="dialog" aria-labelledby="p-raianna-fantin-n">
+  <button class="dx" popovertarget="p-raianna-fantin" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/raianna-fantin.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-raianna-fantin-n">Raianna Fantin</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Infectious Disease</span><span>Postdoctoral Fellow, Icahn School of Medicine at Mount Sinai</span></div>
+  <p class="dp">Monoclonal antibodies against mpox that protected animals from the virus.</p>
+  <a class="dl" href="https://www.linkedin.com/in/raianna-fantin/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-dimitris-grigoriadis" popover role="dialog" aria-labelledby="p-dimitris-grigoriadis-n">
+  <button class="dx" popovertarget="p-dimitris-grigoriadis" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/dimitris-grigoriadis.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-dimitris-grigoriadis-n">Dimitris Grigoriadis</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Computational Biology</span><span>Postdoctoral Research Fellow, University of Texas at Austin</span></div>
+  <p class="dp">SRA Explorer, a searchable platform for the world’s largest public store of genetic sequencing data.</p>
+  <a class="dl" href="https://www.linkedin.com/in/dimitris-grigoriadis-8a516a123/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-parker-kotlarz" popover role="dialog" aria-labelledby="p-parker-kotlarz-n">
+  <button class="dx" popovertarget="p-parker-kotlarz" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/parker-kotlarz.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-parker-kotlarz-n">Parker Kotlarz</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Neuroscience</span><span>MD candidate, Harvard Medical School</span></div>
+  <p class="dp">Brain stimulation guided by each patient’s own scans, for drug-resistant epilepsy, stroke, and OCD.</p>
+  <a class="dl" href="https://www.linkedin.com/in/parker-kotlarz/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-helene-lacaille" popover role="dialog" aria-labelledby="p-helene-lacaille-n">
+  <button class="dx" popovertarget="p-helene-lacaille" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/helene-lacaille.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-helene-lacaille-n">Helene Lacaille</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Neuroscience</span><span>Associate Research Scientist, Columbia University Medical Center</span></div>
+  <p class="dp">Identifying the placental hormones that support brain development, so they can be given to babies born too early.</p>
+  <a class="dl" href="https://www.linkedin.com/in/helene-lacaille-bba5ba1a5/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-quinn-ma" popover role="dialog" aria-labelledby="p-quinn-ma-n">
+  <button class="dx" popovertarget="p-quinn-ma" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/quinn-ma.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-quinn-ma-n">Quinn Ma</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering</span><span>Postdoc, Johns Hopkins University</span></div>
+  <p class="dp">Software that corrects positioning errors in industrial X-ray scanners, so 3D-printed metal parts can be inspected faster and for less.</p>
+  <a class="dl" href="https://www.linkedin.com/in/quinn-ma/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-haider-manzer" popover role="dialog" aria-labelledby="p-haider-manzer-n">
+  <button class="dx" popovertarget="p-haider-manzer" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/haider-manzer.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-haider-manzer-n">Haider Manzer</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Infectious Disease</span><span>Postdoctoral Fellow, Children’s Hospital of Philadelphia</span></div>
+</div>
+
+<div class="pop" id="p-omar-matar" popover role="dialog" aria-labelledby="p-omar-matar-n">
+  <button class="dx" popovertarget="p-omar-matar" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/omar-matar.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-omar-matar-n">Omar Matar</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Drug Discovery</span><span>PhD candidate, University College London</span></div>
+  <p class="dp">Vios Bio, a male infertility drug that targets the switch powering sperm movement.</p>
+  <a class="dl" href="https://www.linkedin.com/in/omarmatar21/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-jorge-a-valedon-navarro" popover role="dialog" aria-labelledby="p-jorge-a-valedon-navarro-n">
+  <button class="dx" popovertarget="p-jorge-a-valedon-navarro" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/jorge-a-valedon-navarro.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-jorge-a-valedon-navarro-n">Jorge A. Valedon Navarro</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">AI &amp; Computing</span><span>Pharmacy fellow, UF Health and University of Florida</span></div>
+  <p class="dp">An AI system, overseen by licensed pharmacists, that completes the insurance paperwork standing between patients and their medicine.</p>
+  <a class="dl" href="https://www.linkedin.com/in/jorge-valedon/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-victor-ochoa-gutierrez" popover role="dialog" aria-labelledby="p-victor-ochoa-gutierrez-n">
+  <button class="dx" popovertarget="p-victor-ochoa-gutierrez" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/victor-ochoa-gutierrez.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-victor-ochoa-gutierrez-n">Victor Ochoa-Gutierrez</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering</span><span>Postdoctoral Research Fellow, Cornell University</span></div>
+  <p class="dp">A pulse oximeter rebuilt to read blood oxygen accurately across every skin tone.</p>
+  <a class="dl" href="https://www.linkedin.com/in/victorjalil/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-erica-olsen" popover role="dialog" aria-labelledby="p-erica-olsen-n">
+  <button class="dx" popovertarget="p-erica-olsen" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/erica-olsen.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-erica-olsen-n">Erica Olsen</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering</span><span>PhD student, University of Cambridge</span></div>
+  <p class="dp">A skin-worn sensor that tracks hormones continuously, instead of the single snapshot a blood draw gives.</p>
+  <a class="dl" href="https://www.linkedin.com/in/erica-christine-olsen/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-deep-pal" popover role="dialog" aria-labelledby="p-deep-pal-n">
+  <button class="dx" popovertarget="p-deep-pal" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/deep-pal.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-deep-pal-n">Deep Pal</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering</span><span>Postdoctoral Fellow, Chulalongkorn University</span></div>
+  <p class="dp">A needle-free breath test for diabetes, making low-cost acetone sensors sensitive enough to use.</p>
+  <a class="dl" href="https://www.linkedin.com/in/deep-pal-8a6573a4/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-daniel-penados" popover role="dialog" aria-labelledby="p-daniel-penados-n">
+  <button class="dx" popovertarget="p-daniel-penados" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/daniel-penados.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-daniel-penados-n">Daniel Penados</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Oncology</span><span>PhD student, University of Vermont</span></div>
+  <p class="dp">Mapping signals from DCBLD2, a protein linked to pancreatic cancer survival, and building free tools to measure them.</p>
+  <a class="dl" href="https://www.linkedin.com/in/daniel-penados-richter-7aa597274/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-upahar-poudel" popover role="dialog" aria-labelledby="p-upahar-poudel-n">
+  <button class="dx" popovertarget="p-upahar-poudel" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/upahar-poudel.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-upahar-poudel-n">Upahar Poudel</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Engineering &amp; Materials</span><span>PhD student, University of Nebraska-Lincoln</span></div>
+  <p class="dp">Testing whether the connectors in precast insulated wall panels hold up through fifty years of temperature swings and an earthquake.</p>
+  <a class="dl" href="https://www.linkedin.com/in/upaharpoudel/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-faye-raymond" popover role="dialog" aria-labelledby="p-faye-raymond-n">
+  <button class="dx" popovertarget="p-faye-raymond" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/faye-raymond.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-faye-raymond-n">Faye Raymond</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Neuroscience</span><span>PhD candidate, University at Buffalo</span></div>
+</div>
+
+<div class="pop" id="p-sorour-sarihi" popover role="dialog" aria-labelledby="p-sorour-sarihi-n">
+  <button class="dx" popovertarget="p-sorour-sarihi" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/sorour-sarihi.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-sorour-sarihi-n">Sorour Sarihi</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Food Science</span><span>PhD student, University of Connecticut</span></div>
+  <p class="dp">Seaweed-derived compounds built into foods to calm the gut inflammation of inflammatory bowel disease.</p>
+  <a class="dl" href="https://www.linkedin.com/in/sorour-sarihi-nutrition/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-riccardo-sirtori" popover role="dialog" aria-labelledby="p-riccardo-sirtori-n">
+  <button class="dx" popovertarget="p-riccardo-sirtori" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/riccardo-sirtori.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-riccardo-sirtori-n">Riccardo Sirtori</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Neuroscience</span><span>Postdoctoral Research Fellow, University of Rhode Island</span></div>
+  <p class="dp">A blood test for detecting ALS early.</p>
+  <a class="dl" href="https://www.linkedin.com/in/riccardo-sirtori-a145241b5/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-violet-tu" popover role="dialog" aria-labelledby="p-violet-tu-n">
+  <button class="dx" popovertarget="p-violet-tu" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/violet-tu.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-violet-tu-n">Violet Tu</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Oncology</span><span>MD/PhD candidate, Duke University</span></div>
+  <p class="dp">An off-the-shelf vaccine for HER2-positive breast cancer, designed to pair with the standard-of-care drug Enhertu.</p>
+  <a class="dl" href="https://www.linkedin.com/in/violet-tu-b34747162/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-meghan-blair-turner" popover role="dialog" aria-labelledby="p-meghan-blair-turner-n">
+  <button class="dx" popovertarget="p-meghan-blair-turner" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/meghan-blair-turner.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-meghan-blair-turner-n">Meghan Blair Turner</h3><span class="tag t">Translation Grant</span></div></div>
+  <div class="dm"><span class="fld">Neuroscience</span><span>Postdoctoral Research Fellow, University of Kentucky</span></div>
+  <p class="dp">How asprosin, a hormone released by body fat, raises blood pressure through the brain.</p>
+  <a class="dl" href="https://www.linkedin.com/in/meghan-blair-turner-ms-phd-279666b0/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-avaneesh-babu" popover role="dialog" aria-labelledby="p-avaneesh-babu-n">
+  <button class="dx" popovertarget="p-avaneesh-babu" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/avaneesh-babu.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-avaneesh-babu-n">Avaneesh Babu</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering &amp; Medical Devices</span><span>Graduate student, Johns Hopkins University</span></div>
+  <p class="dp">Headset for driver fatigue.</p>
+</div>
+
+<div class="pop" id="p-garyk-brixi" popover role="dialog" aria-labelledby="p-garyk-brixi-n">
+  <button class="dx" popovertarget="p-garyk-brixi" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/garyk-brixi.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-garyk-brixi-n">Garyk Brixi</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Genomics &amp; Computational Biology</span><span>Graduate student, Stanford University</span></div>
+  <p class="dp">DNA language models.</p>
+</div>
+
+<div class="pop" id="p-bradley-chan" popover role="dialog" aria-labelledby="p-bradley-chan-n">
+  <button class="dx" popovertarget="p-bradley-chan" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><span class="ph ini" aria-hidden="true">BC</span><div><h3 class="dn" id="p-bradley-chan-n">Bradley Chan</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering &amp; Medical Devices</span><span>Graduate student, University of California, Los Angeles</span></div>
+  <p class="dp">Ultrashort cancer DNA.</p>
+</div>
+
+<div class="pop" id="p-derrick-asante-dwamena" popover role="dialog" aria-labelledby="p-derrick-asante-dwamena-n">
+  <button class="dx" popovertarget="p-derrick-asante-dwamena" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/derrick-asante-dwamena.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-derrick-asante-dwamena-n">Derrick Asante Dwamena</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">AI &amp; Computing</span><span>Graduate student, Temple University</span></div>
+  <p class="dp">Trust in AI advice.</p>
+</div>
+
+<div class="pop" id="p-yehia-elgammal" popover role="dialog" aria-labelledby="p-yehia-elgammal-n">
+  <button class="dx" popovertarget="p-yehia-elgammal" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/yehia-elgammal.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-yehia-elgammal-n">Yehia Elgammal</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Drug Discovery &amp; Therapeutics</span><span>Postdoc, University of Florida</span></div>
+</div>
+
+<div class="pop" id="p-lauren-fries" popover role="dialog" aria-labelledby="p-lauren-fries-n">
+  <button class="dx" popovertarget="p-lauren-fries" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/lauren-fries.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-lauren-fries-n">Lauren Fries</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Genomics &amp; Computational Biology</span><span>Graduate student, Columbia University</span></div>
+  <p class="dp">Heart disease gene.</p>
+</div>
+
+<div class="pop" id="p-cyril-geismar" popover role="dialog" aria-labelledby="p-cyril-geismar-n">
+  <button class="dx" popovertarget="p-cyril-geismar" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/cyril-geismar.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-cyril-geismar-n">Cyril Geismar</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Immunology &amp; Infectious Disease</span><span>Postdoc, Johns Hopkins University</span></div>
+  <p class="dp">Hospital outbreak tracing.</p>
+</div>
+
+<div class="pop" id="p-leilei-gou" popover role="dialog" aria-labelledby="p-leilei-gou-n">
+  <button class="dx" popovertarget="p-leilei-gou" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/leilei-gou.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-leilei-gou-n">Leilei Gou</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Cancer &amp; Oncology</span><span>Postdoc, University of Texas at Austin</span></div>
+  <p class="dp">Gut bacteria against tumors.</p>
+</div>
+
+<div class="pop" id="p-alberto-daniel-guerra" popover role="dialog" aria-labelledby="p-alberto-daniel-guerra-n">
+  <button class="dx" popovertarget="p-alberto-daniel-guerra" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/alberto-daniel-guerra.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-alberto-daniel-guerra-n">Alberto Daniel Guerra</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Cancer &amp; Oncology</span><span>Postdoc, Children’s Hospital of Philadelphia</span></div>
+  <p class="dp">Immune therapy for children.</p>
+</div>
+
+<div class="pop" id="p-nancy-ihechu" popover role="dialog" aria-labelledby="p-nancy-ihechu-n">
+  <button class="dx" popovertarget="p-nancy-ihechu" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/nancy-ihechu.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-nancy-ihechu-n">Nancy Ihechu</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Chemistry &amp; Materials</span><span>Graduate student, University of Missouri-Columbia</span></div>
+  <p class="dp">Male contraceptive screening.</p>
+</div>
+
+<div class="pop" id="p-laiba-jamshed" popover role="dialog" aria-labelledby="p-laiba-jamshed-n">
+  <button class="dx" popovertarget="p-laiba-jamshed" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/laiba-jamshed.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-laiba-jamshed-n">Laiba Jamshed</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Cell &amp; Molecular Biology</span><span>Postdoc, Yale University</span></div>
+  <p class="dp">Lab-grown womb lining.</p>
+</div>
+
+<div class="pop" id="p-md-abdul-kaium-khan" popover role="dialog" aria-labelledby="p-md-abdul-kaium-khan-n">
+  <button class="dx" popovertarget="p-md-abdul-kaium-khan" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/md-abdul-kaium-khan.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-md-abdul-kaium-khan-n">Md Abdul Kaium Khan</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering &amp; Medical Devices</span><span>Graduate student, University at Buffalo</span></div>
+</div>
+
+<div class="pop" id="p-byung-wook-kim" popover role="dialog" aria-labelledby="p-byung-wook-kim-n">
+  <button class="dx" popovertarget="p-byung-wook-kim" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/byung-wook-kim.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-byung-wook-kim-n">Byung-Wook Kim</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Chemistry &amp; Materials</span><span>Postdoc, Columbia University</span></div>
+  <p class="dp">Bridge and river sensors.</p>
+</div>
+
+<div class="pop" id="p-samuel-hyo-nam-king" popover role="dialog" aria-labelledby="p-samuel-hyo-nam-king-n">
+  <button class="dx" popovertarget="p-samuel-hyo-nam-king" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/samuel-hyo-nam-king.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-samuel-hyo-nam-king-n">Samuel Hyo-nam King</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Genomics &amp; Computational Biology</span><span>Graduate student, Stanford University</span></div>
+  <p class="dp">AI-designed bacteriophages.</p>
+</div>
+
+<div class="pop" id="p-serena-nencini" popover role="dialog" aria-labelledby="p-serena-nencini-n">
+  <button class="dx" popovertarget="p-serena-nencini" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/serena-nencini.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-serena-nencini-n">Serena Nencini</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Public &amp; Global Health</span><span>Postdoc, Columbia University</span></div>
+  <p class="dp">BPA and the developing brain.</p>
+</div>
+
+<div class="pop" id="p-bernard-lawer-patawah" popover role="dialog" aria-labelledby="p-bernard-lawer-patawah-n">
+  <button class="dx" popovertarget="p-bernard-lawer-patawah" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/bernard-lawer-patawah.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-bernard-lawer-patawah-n">Bernard Lawer Patawah</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Chemistry &amp; Materials</span><span>Graduate student, Illinois Institute of Technology</span></div>
+</div>
+
+<div class="pop" id="p-anargyros-skoulakis" popover role="dialog" aria-labelledby="p-anargyros-skoulakis-n">
+  <button class="dx" popovertarget="p-anargyros-skoulakis" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/anargyros-skoulakis.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-anargyros-skoulakis-n">Anargyros Skoulakis</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Genomics &amp; Computational Biology</span><span>Postdoc, University of Thessaly</span></div>
+  <p class="dp">Point-of-care STI test.</p>
+  <a class="dl" href="https://www.linkedin.com/in/anargyros-skoulakis-0b9986212/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-abhishek-soni" popover role="dialog" aria-labelledby="p-abhishek-soni-n">
+  <button class="dx" popovertarget="p-abhishek-soni" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/abhishek-soni.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-abhishek-soni-n">Abhishek Soni</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Chemistry &amp; Materials</span><span>Postdoc, Massachusetts Institute of Technology</span></div>
+  <p class="dp">Clean hydrogen from rock.</p>
+</div>
+
+<div class="pop" id="p-connor-thompson" popover role="dialog" aria-labelledby="p-connor-thompson-n">
+  <button class="dx" popovertarget="p-connor-thompson" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/connor-thompson.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-connor-thompson-n">Connor Thompson</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Drug Discovery &amp; Therapeutics</span><span>Graduate student, University of British Columbia, Vancouver</span></div>
+  <p class="dp">Broad-spectrum antiviral.</p>
+  <a class="dl" href="https://www.linkedin.com/in/connor-thompson1" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-mariana-toro-ramirez" popover role="dialog" aria-labelledby="p-mariana-toro-ramirez-n">
+  <button class="dx" popovertarget="p-mariana-toro-ramirez" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/mariana-toro-ramirez.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-mariana-toro-ramirez-n">Mariana Toro Ramirez</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Agriculture &amp; Food Science</span><span>Graduate student, Concordia University</span></div>
+  <p class="dp">Cattle weight from photos.</p>
+</div>
+
+<div class="pop" id="p-daniel-uribe" popover role="dialog" aria-labelledby="p-daniel-uribe-n">
+  <button class="dx" popovertarget="p-daniel-uribe" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/daniel-uribe.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-daniel-uribe-n">Daniel Uribe</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Genomics &amp; Computational Biology</span><span>Graduate student, University of Technology Sydney</span></div>
+  <p class="dp">Patient-owned biological data.</p>
+</div>
+
+<div class="pop" id="p-abishek-wadhwa" popover role="dialog" aria-labelledby="p-abishek-wadhwa-n">
+  <button class="dx" popovertarget="p-abishek-wadhwa" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/abishek-wadhwa.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-abishek-wadhwa-n">Abishek Wadhwa</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Cancer &amp; Oncology</span><span>Graduate student, University of British Columbia, Vancouver</span></div>
+  <p class="dp">Lipid nanoparticle delivery.</p>
+  <a class="dl" href="https://www.linkedin.com/in/abishek-wadhwa/" target="_blank" rel="noopener">LinkedIn →</a>
+</div>
+
+<div class="pop" id="p-sripadh-guptha-yedire" popover role="dialog" aria-labelledby="p-sripadh-guptha-yedire-n">
+  <button class="dx" popovertarget="p-sripadh-guptha-yedire" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><img class="ph" src="/images/grantees/sripadh-guptha-yedire.jpg" alt="" width="72" height="72" loading="lazy"><div><h3 class="dn" id="p-sripadh-guptha-yedire-n">Sripadh Guptha Yedire</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Bioengineering &amp; Medical Devices</span><span>Graduate student, McGill University</span></div>
+  <p class="dp">Wearable kidney sensor.</p>
+</div>
+
+<div class="pop" id="p-jingyao-zhu" popover role="dialog" aria-labelledby="p-jingyao-zhu-n">
+  <button class="dx" popovertarget="p-jingyao-zhu" popovertargetaction="hide" aria-label="Close">×</button>
+  <div class="dh"><span class="ph ini" aria-hidden="true">JZ</span><div><h3 class="dn" id="p-jingyao-zhu-n">Jingyao Zhu</h3><span class="tag f">Friction Grant</span></div></div>
+  <div class="dm"><span class="fld">Immunology &amp; Infectious Disease</span><span>Graduate student, Johns Hopkins University</span></div>
 </div>
 
 <footer>
